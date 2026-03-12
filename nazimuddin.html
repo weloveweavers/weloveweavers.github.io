@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WE LOVE WEAVERS | Abdullah Nazimuddin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --burgundy: #6B0F1A;
+    --burgundy-dark: #4A0A12;
+    --burgundy-light: #8B1525;
+    --gold: #F2B705;
+    --gold-light: #F5C842;
+    --gold-pale: #FDF3D0;
+    --cream: #F5F1E8;
+    --cream-dark: #EDE8DC;
+    --text: #1F1F1F;
+    --text-muted: #5A5A5A;
+    --divider: #E3DED3;
+    --white: #FFFFFF;
+    --shadow-sm: 0 2px 8px rgba(107,15,26,0.08);
+    --shadow-md: 0 6px 24px rgba(107,15,26,0.12);
+    --shadow-lg: 0 16px 48px rgba(107,15,26,0.18);
+    --radius: 8px;
+    --radius-lg: 14px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+  }
+
+  /* ─── UTILITY ──────────────────────────────── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 88px 0; }
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: var(--burgundy);
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 4px;
+    background: var(--gold);
+    margin-top: 12px;
+    border-radius: 2px;
+  }
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin-bottom: 48px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 30px;
+    border-radius: var(--radius);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: 2px solid transparent;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--burgundy-dark);
+    border-color: var(--gold);
+  }
+  .btn-gold:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(242,183,5,0.35);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--burgundy);
+    border-color: var(--burgundy);
+  }
+  .btn-outline:hover {
+    background: var(--burgundy);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-outline-white {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255,255,255,0.6);
+  }
+  .btn-outline-white:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  /* ─── IMAGE PLACEHOLDER ─────────────────────── */
+  .img-placeholder {
+    background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy-light) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .img-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,255,255,0.02) 20px,
+      rgba(255,255,255,0.02) 40px
+    );
+  }
+  .img-placeholder svg { opacity: 0.35; }
+
+  /* ─── NAV ───────────────────────────────────── */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--burgundy);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 16px;
+  }
+  .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo {
+    width: clamp(48px, 5vw, 64px);
+    height: clamp(48px, 5vw, 64px);
+    object-fit: contain;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    padding: 6px;
+  }
+  .nav-brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+  .nav-brand-ward {
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover {
+    color: var(--gold);
+    background: rgba(255,255,255,0.07);
+  }
+  .nav-cta { margin-left: 8px; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ─── HERO ──────────────────────────────────── */
+  .hero {
+    background: linear-gradient(160deg, var(--burgundy-dark) 0%, var(--burgundy) 55%, #7A1020 100%);
+    padding: 96px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(242,183,5,0.06) 0%, transparent 60%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 80px
+      );
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,183,5,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-image-wrap {
+    position: relative;
+  }
+  .hero-image-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 2px solid rgba(242,183,5,0.3);
+    border-radius: calc(var(--radius-lg) + 8px);
+    animation: borderPulse 3s ease-in-out infinite;
+  }
+  @keyframes borderPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
+  .hero-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--gold);
+    color: var(--burgundy-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px rgba(242,183,5,0.4);
+  }
+  .hero-content { color: var(--white); }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(242,183,5,0.12);
+    border: 1px solid rgba(242,183,5,0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .hero-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    color: var(--white);
+  }
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+  .hero-slogan {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 28px;
+    text-shadow: 0 2px 16px rgba(242,183,5,0.25);
+  }
+  .hero-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    padding: 12px 20px;
+    margin-bottom: 36px;
+    font-size: 0.9rem;
+  }
+  .hero-date-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .hero-date-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  /* ─── WHY STANDING ─────────────────────────── */
+  .why-section { background: var(--white); }
+  .issues-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .issue-card {
+    background: var(--cream);
+    border: 1px solid var(--divider);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .issue-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+  }
+  .issue-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--gold);
+  }
+  .issue-card:hover::before { transform: scaleX(1); }
+  .issue-icon {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .issue-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--burgundy);
+    line-height: 1.4;
+  }
+
+  /* ─── QUOTE BAND ───────────────────────────── */
+  .quote-band {
+    background: var(--burgundy);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .quote-band::before {
+    content: '\201C';
+    position: absolute;
+    top: -40px;
+    left: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20rem;
+    color: rgba(242,183,5,0.07);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+    font-style: italic;
+    color: var(--white);
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto;
+    line-height: 1.55;
+    position: relative;
+    z-index: 1;
+  }
+  .quote-text mark {
+    background: rgba(242,183,5,0.18);
+    color: var(--gold);
+    padding: 0 4px;
+    border-radius: 3px;
+    font-style: normal;
+  }
+  .quote-attr {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── ABOUT ─────────────────────────────────── */
+  .about-section { background: var(--cream); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 96px;
+  }
+  .about-content {}
+  .about-bio {
+    font-size: 1.02rem;
+    color: var(--text);
+    margin-bottom: 28px;
+    line-height: 1.8;
+  }
+  .credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .credential-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--white);
+    border: 1px solid var(--divider);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+  }
+  .credential-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .credential-item span {
+    font-size: 0.87rem;
+    font-weight: 600;
+    color: var(--burgundy);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.4;
+  }
+  .legal-aid-box {
+    background: var(--burgundy);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  .legal-aid-box h4 {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .legal-aid-box p { color: rgba(255,255,255,0.85); font-size: 0.92rem; line-height: 1.7; }
+  .legal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .legal-tag {
+    background: rgba(242,183,5,0.15);
+    color: var(--gold);
+    border: 1px solid rgba(242,183,5,0.3);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--burgundy);
+    border-left: 4px solid var(--gold);
+    padding-left: 20px;
+    line-height: 1.6;
+  }
+
+  /* ─── COMMITMENTS ───────────────────────────── */
+  .commitments-section { background: var(--white); }
+  .commitments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .commitment-card {
+    background: var(--cream);
+    border: 2px solid var(--divider);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .commitment-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 8px 32px rgba(242,183,5,0.15);
+    transform: translateY(-3px);
+  }
+  .commitment-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(242,183,5,0.2);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .commitment-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--burgundy);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .commitment-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ─── COMMUNITY ─────────────────────────────── */
+  .community-section { background: var(--cream); }
+  .community-text {
+    max-width: 680px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 48px;
+  }
+  .community-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .gallery-item {
+    aspect-ratio: 4/3;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .gallery-item:first-child {
+    grid-column: span 2;
+    aspect-ratio: 16/9;
+  }
+
+  /* ─── CONTACT ───────────────────────────────── */
+  .contact-section { background: var(--burgundy-dark); }
+  .contact-section .section-title { color: var(--white); }
+  .contact-section .section-title::after { background: var(--gold); }
+  .contact-section .section-subtitle { color: rgba(255,255,255,0.65); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .contact-items { display: flex; flex-direction: column; gap: 20px; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contact-item:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(242,183,5,0.4);
+  }
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(242,183,5,0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .contact-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2px;
+  }
+  .contact-value {
+    font-size: 0.95rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+  .contact-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .contact-cta-text {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+  }
+
+  /* ─── REPORT ISSUE ──────────────────────────── */
+  .report-section {
+    background: var(--cream-dark);
+    padding: 72px 0;
+    text-align: center;
+  }
+  .report-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .report-section .section-title { text-align: center; }
+  .report-section .section-title::after { margin: 12px auto 0; }
+  .report-badge {
+    display: inline-block;
+    background: var(--gold-pale);
+    color: var(--burgundy);
+    border: 1px solid rgba(242,183,5,0.4);
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .report-section p {
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  /* ─── FOOTER ────────────────────────────────── */
+  footer {
+    background: var(--burgundy-dark);
+    padding: 56px 0 32px;
+    color: rgba(255,255,255,0.7);
+    border-top: 3px solid rgba(242,183,5,0.3);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 32px;
+  }
+  .footer-brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .footer-brand-ward {
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .footer-blurb {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+  }
+  .footer-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-link-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-link-list a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .footer-link-list a:hover { color: var(--gold); }
+  .social-row { display: flex; gap: 10px; margin-top: 4px; }
+  .social-btn {
+    width: 38px;
+    height: 38px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .social-btn:hover {
+    background: rgba(242,183,5,0.12);
+    border-color: rgba(242,183,5,0.3);
+    color: var(--gold);
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-imprint {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ─── MOBILE NAV ───────────────────────────── */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--burgundy-dark);
+    padding: 16px 24px 24px;
+    gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .btn { margin-top: 12px; justify-content: center; }
+
+  /* ─── RESPONSIVE ───────────────────────────── */
+  @media (max-width: 960px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-image-wrap { max-width: 360px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-photo { position: static; max-width: 340px; }
+    .credentials { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .community-gallery { grid-template-columns: 1fr 1fr; }
+    .community-gallery .gallery-item:first-child { grid-column: span 2; }
+  }
+
+  @media (max-width: 720px) {
+    .section { padding: 64px 0; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero { padding: 64px 0 56px; }
+    .issues-grid { grid-template-columns: 1fr 1fr; }
+    .commitments-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .community-gallery { grid-template-columns: 1fr; }
+    .community-gallery .gallery-item:first-child { grid-column: span 1; aspect-ratio: 4/3; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .issues-grid { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; }
+    .hero-btns .btn { width: 100%; justify-content: center; }
+  }
+
+  /* ─── SCROLL REVEAL ─────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="home.html" class="nav-brand" aria-label="We Love Weavers Home">
+      <img class="nav-logo" src="Assets/logo.png" alt="We Love Weavers logo">
+      <span class="nav-brand-text">
+        <span class="nav-brand-name">We Love Weavers</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Abdullah</a></li>
+      <li><a href="#priorities">Priorities</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-gold nav-cta">Support the Campaign</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMobile()">Home</a>
+    <a href="#about" onclick="closeMobile()">About Abdullah</a>
+    <a href="#priorities" onclick="closeMobile()">Priorities</a>
+    <a href="#community" onclick="closeMobile()">Community</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="#contact" class="btn btn-gold" onclick="closeMobile()">Support the Campaign</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-image-wrap reveal">
+      <img class="hero-photo" src="Assets/nazimuddin.jpg" alt="Abdullah Nazimuddin">
+      <div class="hero-badge">Independent Candidate</div>
+    </div>
+    <div class="hero-content reveal" style="transition-delay:0.15s">
+      <div class="hero-tag">Local Election 2026 · Weavers Ward</div>
+      <h1 class="hero-name">Abdullah<br>Nazimuddin</h1>
+      <p class="hero-tagline">Your Independent Voice for Weavers Ward</p>
+      <div class="hero-slogan">Vote for Change</div>
+      <div class="hero-date">
+        <div>
+          <div class="hero-date-label">Election Day</div>
+          <div class="hero-date-value">Thursday, 7 May 2026</div>
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-gold">Support the Campaign</a>
+        <a href="#contact" class="btn btn-outline-white">Contact Abdullah</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY I AM STANDING ═══ -->
+<section class="section why-section" id="priorities">
+  <div class="container">
+    <h2 class="section-title reveal">Why I Am Standing</h2>
+    <p class="section-subtitle reveal" style="transition-delay:0.1s">
+      Residents of Weavers Ward deserve stronger, more accountable representation. Too many voices have gone unheard for too long. I am standing because our community deserves a councillor who listens, acts, and fights — not one who stays silent.
+    </p>
+    <div class="issues-grid">
+      <div class="issue-card reveal" style="transition-delay:0.05s">
+        <span class="issue-icon">🏚️</span>
+        <h3>Housing repairs delays and damp issues</h3>
+      </div>
+      <div class="issue-card reveal" style="transition-delay:0.1s">
+        <span class="issue-icon">🚨</span>
+        <h3>Anti-social behaviour in estates</h3>
+      </div>
+      <div class="issue-card reveal" style="transition-delay:0.15s">
+        <span class="issue-icon">🗑️</span>
+        <h3>Fly-tipping and poor street cleanliness</h3>
+      </div>
+      <div class="issue-card reveal" style="transition-delay:0.2s">
+        <span class="issue-icon">🎓</span>
+        <h3>Limited opportunities for young people</h3>
+      </div>
+      <div class="issue-card reveal" style="transition-delay:0.25s">
+        <span class="issue-icon">📋</span>
+        <h3>Lack of transparency in council decisions</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUOTE BAND ═══ -->
+<section class="quote-band">
+  <div class="container">
+    <blockquote class="quote-text reveal">
+      "Councillors should not be silent observers. They must <mark>challenge poor performance</mark>, demand answers, and stand <mark>firmly with residents</mark>."
+    </blockquote>
+    <p class="quote-attr reveal" style="transition-delay:0.1s">— Abdullah Nazimuddin</p>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content reveal" style="transition-delay:0.15s">
+        <h2 class="section-title">About Abdullah</h2>
+        <p class="about-bio">
+          Abdullah Nazimuddin is a dedicated community leader, project manager, and educator with deep roots in Tower Hamlets. His work spans the charitable, educational, and legal aid sectors — giving him a rounded understanding of the pressures facing ordinary families in Weavers Ward.
+        </p>
+        <p class="about-bio">
+          Abdullah brings professional expertise and a genuine commitment to public service. He has spent years supporting residents through some of their most difficult challenges — from housing disputes to immigration matters — and believes passionately that good representation starts with truly knowing your community.
+        </p>
+        <div class="credentials">
+          <div class="credential-item">
+            <div class="credential-dot"></div>
+            <span>Project Manager – Ummah Appeal</span>
+          </div>
+          <div class="credential-item">
+            <div class="credential-dot"></div>
+            <span>BA (Hons) Business &amp; Finance</span>
+          </div>
+          <div class="credential-item">
+            <div class="credential-dot"></div>
+            <span>Trustee – Plumstead Islamic Centre</span>
+          </div>
+          <div class="credential-item">
+            <div class="credential-dot"></div>
+            <span>Teacher – Ummah Academy Ltd</span>
+          </div>
+        </div>
+        <div class="legal-aid-box">
+          <h4>Legal Aid &amp; Resident Support</h4>
+          <p>Abdullah has provided vital support through legal aid services, assisting residents navigate complex challenges and access their rights.</p>
+          <div class="legal-tags">
+            <span class="legal-tag">Immigration</span>
+            <span class="legal-tag">Housing Issues</span>
+            <span class="legal-tag">Civil Penalties</span>
+            <span class="legal-tag">Welfare Benefits</span>
+          </div>
+        </div>
+        <blockquote class="about-quote">
+          "Good leadership must be accessible, accountable, and rooted in the community."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMMITMENTS ═══ -->
+<section class="section commitments-section">
+  <div class="container">
+    <h2 class="section-title reveal">My Commitment to Weavers Ward</h2>
+    <p class="section-subtitle reveal" style="transition-delay:0.1s">
+      These are not empty promises. These are the concrete actions I will take from day one as your councillor.
+    </p>
+    <div class="commitments-grid">
+      <div class="commitment-card reveal" style="transition-delay:0.05s">
+        <div class="commitment-number">01</div>
+        <h3>Strict Housing Repair Timelines</h3>
+        <p>Push for enforceable deadlines on housing repairs and hold the council accountable for persistent damp and disrepair affecting residents' homes.</p>
+      </div>
+      <div class="commitment-card reveal" style="transition-delay:0.1s">
+        <div class="commitment-number">02</div>
+        <h3>Tackle Crime Hotspots</h3>
+        <p>Work alongside police and residents to identify and address anti-social behaviour hotspots across estates, making Weavers Ward safer for all.</p>
+      </div>
+      <div class="commitment-card reveal" style="transition-delay:0.15s">
+        <div class="commitment-number">03</div>
+        <h3>Cleaner Streets &amp; Anti-Fly-Tipping</h3>
+        <p>Demand stronger enforcement action against fly-tipping and ensure our streets are maintained to the standard our community deserves.</p>
+      </div>
+      <div class="commitment-card reveal" style="transition-delay:0.2s">
+        <div class="commitment-number">04</div>
+        <h3>Youth Employment &amp; Apprenticeships</h3>
+        <p>Champion programmes that create real pathways into work for young people, including apprenticeship opportunities with local employers.</p>
+      </div>
+      <div class="commitment-card reveal" style="transition-delay:0.25s">
+        <div class="commitment-number">05</div>
+        <h3>Transparent Council Spending</h3>
+        <p>Ensure that council finances and decision-making are open to scrutiny — and challenge any spending that does not serve residents' interests.</p>
+      </div>
+      <div class="commitment-card reveal" style="transition-delay:0.3s">
+        <div class="commitment-number">06</div>
+        <h3>Charities, Schools &amp; Children's Activities</h3>
+        <p>Work with local charities and schools to expand extracurricular opportunities for children, ensuring every young person has a chance to thrive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMMUNITY ═══ -->
+<section class="section community-section" id="community">
+  <div class="container">
+    <h2 class="section-title reveal">Rooted in the Community</h2>
+    <p class="community-text reveal" style="transition-delay:0.1s">
+      Abdullah's campaign is built from the ground up — not funded by developers or party machines, but powered by the people of Weavers Ward. He is committed to working hand-in-hand with residents, local charities, faith organisations, and schools to make our ward a place everyone can be proud of.
+    </p>
+    <div class="community-gallery">
+      <div class="gallery-item reveal" style="transition-delay:0.05s">
+        <div class="img-placeholder" style="height:100%">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>Community Event</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.1s">
+        <div class="img-placeholder" style="height:100%">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>Door-to-Door Canvassing</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.15s">
+        <div class="img-placeholder" style="height:100%">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>Resident Meetings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <h2 class="section-title reveal">Get in Touch</h2>
+        <p class="section-subtitle reveal" style="transition-delay:0.1s">
+          Have a local issue? Want to get involved? Abdullah wants to hear from you directly.
+        </p>
+        <div class="contact-items reveal" style="transition-delay:0.15s">
+          <a class="contact-item" href="tel:07508345521">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">07508 345521</div>
+            </div>
+          </a>
+          <a class="contact-item" href="mailto:info@towerhamletsindependents.org">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">info@towerhamletsindependents.org</div>
+            </div>
+          </a>
+          <a class="contact-item" href="https://towerhamletsindependents.org" target="_blank" rel="noopener">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <div class="contact-label">Website</div>
+              <div class="contact-value">towerhamletsindependents.org</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-cta reveal" style="transition-delay:0.2s">
+        <p class="contact-cta-text">
+          Whether you're dealing with a housing issue, concerned about crime in your area, or simply want to learn more about the campaign — Abdullah is ready to listen and act on your behalf.
+        </p>
+        <a href="mailto:info@towerhamletsindependents.org" class="btn btn-gold" style="font-size:1rem; padding:18px 40px;">Get in Touch</a>
+        <div class="social-row">
+          <a href="#" class="social-btn" title="Facebook">f</a>
+          <a href="#" class="social-btn" title="X / Twitter">𝕏</a>
+          <a href="#" class="social-btn" title="Instagram">◎</a>
+          <a href="#" class="social-btn" title="WhatsApp">●</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REPORT ISSUE ═══ -->
+<section class="report-section">
+  <div class="report-inner">
+    <div class="report-badge reveal">Coming Soon</div>
+    <h2 class="section-title reveal" style="text-align:center">Report a Local Issue</h2>
+    <p class="reveal" style="transition-delay:0.1s">
+      Soon, residents of Weavers Ward will be able to submit local issues, report concerns, and make suggestions directly through this website. Abdullah is committed to making it as easy as possible to raise issues and get a response.
+    </p>
+    <a href="#" class="btn btn-gold reveal" style="transition-delay:0.15s; font-size:1rem; padding:18px 40px;">Report an Issue</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Abdullah Nazimuddin</div>
+        <div class="footer-brand-ward">Independent Candidate · Weavers Ward</div>
+        <p class="footer-blurb">Fighting for stronger representation, better housing, cleaner streets, and real opportunities for every resident of Weavers Ward, Tower Hamlets.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-link-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Abdullah</a></li>
+          <li><a href="#priorities">Priorities</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-link-list">
+          <li><a href="tel:07508345521">07508 345521</a></li>
+          <li><a href="mailto:info@towerhamletsindependents.org">info@towerhamletsindependents.org</a></li>
+          <li><a href="https://towerhamletsindependents.org" target="_blank" rel="noopener">towerhamletsindependents.org</a></li>
+        </ul>
+        <div style="margin-top:20px">
+          <div class="footer-heading">Follow</div>
+          <div class="social-row">
+            <a href="#" class="social-btn" title="Facebook">f</a>
+            <a href="#" class="social-btn" title="X / Twitter">𝕏</a>
+            <a href="#" class="social-btn" title="Instagram">◎</a>
+            <a href="#" class="social-btn" title="WhatsApp">●</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-imprint">Promoted by Abdullah Nazimuddin on behalf of Tower Hamlets Independents.</p>
+      <p class="footer-copy">© 2026 Abdullah Nazimuddin Campaign. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Hamburger menu ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // ── Scroll reveal ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── Active nav link ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const scrollSpy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.style.color = link.getAttribute('href') === '#' + entry.target.id
+            ? 'var(--gold)'
+            : '';
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => scrollSpy.observe(s));
+</script>
+</body>
+</html>

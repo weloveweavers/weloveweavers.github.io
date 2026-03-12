@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WE LOVE WEAVERS | Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #6B0F1A;
+    --burgundy-dark: #4A0A12;
+    --burgundy-light: #8B1525;
+    --gold: #F2B705;
+    --gold-light: #F5C842;
+    --cream: #F5F1E8;
+    --text: #1F1F1F;
+    --text-muted: #5A5A5A;
+    --divider: #E3DED3;
+    --white: #FFFFFF;
+    --shadow-sm: 0 2px 8px rgba(107,15,26,0.08);
+    --shadow-md: 0 10px 30px rgba(107,15,26,0.14);
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+  a { text-decoration: none; color: inherit; }
+
+  .navbar {
+    background: var(--burgundy);
+    color: var(--white);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-logo {
+    width: clamp(48px, 5vw, 64px);
+    height: clamp(48px, 5vw, 64px);
+    object-fit: contain;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    padding: 6px;
+  }
+  .nav-brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-brand-name {
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    background: linear-gradient(160deg, var(--burgundy-dark) 0%, var(--burgundy) 55%, #7A1020 100%);
+    color: var(--white);
+    padding: 96px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(242,183,5,0.06) 0%, transparent 60%),
+      repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 80px);
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(242,183,5,0.12);
+    border: 1px solid rgba(242,183,5,0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+  .hero-subtitle {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+  }
+
+  .section {
+    padding: 80px 24px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: var(--burgundy);
+    margin-bottom: 12px;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 4px;
+    background: var(--gold);
+    margin-top: 12px;
+    border-radius: 2px;
+  }
+  .section-subtitle {
+    color: var(--text-muted);
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  .candidates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .candidate-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--divider);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .candidate-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: var(--shadow-md);
+  }
+  .candidate-image {
+    background: linear-gradient(135deg, var(--burgundy-dark), var(--burgundy-light));
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+  }
+  .candidate-body {
+    padding: 22px;
+  }
+  .candidate-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--burgundy);
+    margin-bottom: 6px;
+  }
+  .candidate-tagline {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--burgundy-dark);
+    border: 2px solid var(--gold);
+    transition: all 0.25s ease;
+  }
+  .btn:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  footer {
+    background: var(--burgundy);
+    color: var(--white);
+    padding: 40px 24px 24px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 16px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+  }
+
+  @media (max-width: 768px) {
+    .section { padding: 64px 20px; }
+    .hero { padding: 80px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-brand" aria-label="We Love Weavers Home">
+        <img class="nav-logo" src="Assets/logo.png" alt="We Love Weavers logo">
+        <span class="nav-brand-text">
+          <span class="nav-brand-name">We Love Weavers</span>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Local Election 2026  Weavers Ward</div>
+      <h1 class="hero-title">Meet the Independent Candidates</h1>
+      <p class="hero-subtitle">Choose a candidate page to learn more about their vision, experience, and commitments for Weavers Ward.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Candidate Pages</h2>
+      <p class="section-subtitle">Select a candidate below to view their full campaign page.</p>
+      <div class="candidates-grid">
+        <article class="candidate-card">
+          <div class="candidate-image">Candidate Photo</div>
+          <div class="candidate-body">
+            <div class="candidate-name">Abdullah Nazimuddin</div>
+            <div class="candidate-tagline">Independent Candidate for Weavers Ward</div>
+            <a class="btn" href="nazimuddin.html">View Campaign</a>
+          </div>
+        </article>
+        <article class="candidate-card">
+          <div class="candidate-image">Candidate Photo</div>
+          <div class="candidate-body">
+            <div class="candidate-name">Imran Hossain</div>
+            <div class="candidate-tagline">Independent Candidate for Weavers Ward</div>
+            <a class="btn" href="imran.html">View Campaign</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>Promoted by the campaign team on behalf of the candidates.</div>
+      <div> 2026 Weavers Ward Campaign. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
