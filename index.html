@@ -439,6 +439,35 @@
       font-size: 0.8rem;
     }
 
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-policy {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.12);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-policy:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateY(-1px);
+    }
+
     @media (max-width: 980px) {
       .mayor-card {
         grid-column: 1 / -1;
@@ -462,6 +491,10 @@
       }
       .nav-brand {
         font-size: 0.85rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -632,7 +665,10 @@
         <div class="social-icon">IG</div>
         <div class="social-icon">YT</div>
       </div>
-      <div class="imprint">Promoted by the Tower Hamlets Independents campaign team.</div>
+      <div class="footer-bottom">
+        <a class="footer-policy" href="privacy-policy.html">Privacy Policy</a>
+        <div class="imprint">Promoted by the Tower Hamlets Independents campaign team.</div>
+      </div>
     </div>
   </footer>
 </body>

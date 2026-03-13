@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Tower Hamlets Independents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --burgundy: #6B0F1A;
+      --burgundy-dark: #4A0A12;
+      --gold: #F2B705;
+      --cream: #F5F1E8;
+      --text: #1F1F1F;
+      --text-muted: #5A5A5A;
+      --divider: #E3DED3;
+      --white: #FFFFFF;
+      --shadow-sm: 0 6px 16px rgba(107, 15, 26, 0.12);
+      --radius: 10px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .navbar {
+      background: var(--burgundy);
+      color: var(--white);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      width: clamp(42px, 4vw, 54px);
+      height: clamp(42px, 4vw, 54px);
+      object-fit: contain;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 6px;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .policy-hero {
+      padding: 90px 0 40px;
+      background: linear-gradient(150deg, var(--burgundy-dark) 0%, var(--burgundy) 55%, #7A1020 100%);
+      color: var(--white);
+    }
+
+    .policy-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(242, 183, 5, 0.35);
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(242, 183, 5, 0.12);
+      margin-bottom: 18px;
+    }
+
+    .policy-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .policy-date {
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.03em;
+    }
+
+    .policy-body {
+      padding: 60px 0 80px;
+    }
+
+    .policy-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--divider);
+      box-shadow: var(--shadow-sm);
+      padding: 34px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .policy-card h2 {
+      font-size: 1.3rem;
+      color: var(--burgundy);
+    }
+
+    .policy-card p {
+      color: var(--text-muted);
+    }
+
+    .policy-card ul {
+      padding-left: 22px;
+      color: var(--text-muted);
+      display: grid;
+      gap: 8px;
+    }
+
+    .policy-card li {
+      list-style: disc;
+    }
+
+    .policy-contact {
+      background: rgba(242, 183, 5, 0.12);
+      border-left: 4px solid var(--gold);
+      padding: 16px 18px;
+      border-radius: 6px;
+      color: var(--burgundy-dark);
+      font-weight: 600;
+    }
+
+    footer {
+      background: var(--burgundy);
+      color: var(--white);
+      padding: 48px 0 28px;
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 18px;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-policy {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.12);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-policy:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .imprint {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 700px) {
+      .policy-hero {
+        padding: 70px 0 32px;
+      }
+      .policy-card {
+        padding: 26px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="We Love Weavers Home">
+        <img class="nav-logo" src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/logo.jpeg" alt="We Love Weavers logo">
+        <span class="nav-brand-text">
+          <span>We Love Weavers</span>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="policy-hero">
+    <div class="container">
+      <div class="policy-tag">Privacy Policy</div>
+      <h1 class="policy-title">Privacy Policy</h1>
+      <div class="policy-date">Effective Date: 13 March 2026</div>
+    </div>
+  </header>
+
+  <main class="policy-body">
+    <div class="container">
+      <div class="policy-card">
+        <p>
+          This website is operated by the Tower Hamlets Independents campaign team for the Weavers Ward election
+          campaign in Tower Hamlets, London. We are committed to respecting the privacy of visitors to our website and
+          ensuring transparency about how information is handled.
+        </p>
+        <p>
+          This Privacy Policy explains what information may be collected when you visit our website and how it is used.
+        </p>
+
+        <h2>Information Collected Automatically</h2>
+        <p>
+          When you visit this website, certain anonymous information may be collected automatically through the use of
+          Google Analytics. This tool helps us understand general website usage and improve the performance and content
+          of the site.
+        </p>
+        <p>Google Analytics may collect information such as:</p>
+        <ul>
+          <li>Pages visited on the website</li>
+          <li>Time spent on pages</li>
+          <li>General geographic location (such as country or city level)</li>
+          <li>Device type, browser, and operating system</li>
+          <li>Website traffic patterns and interactions</li>
+        </ul>
+        <p>
+          This information is collected in an aggregated and anonymous form and does not personally identify
+          individual visitors.
+        </p>
+
+        <h2>Information You May Choose to Provide</h2>
+        <p>Visitors may choose to submit feedback, suggestions, or report local issues through forms available on the website.</p>
+        <p>If you choose to use these forms, we may collect the following information that you voluntarily provide:</p>
+        <ul>
+          <li>Email address</li>
+          <li>Your message, suggestion, or issue report</li>
+          <li>Postcode (optional)</li>
+        </ul>
+        <p>
+          Providing this information is entirely voluntary. It will only be used for the purpose of reviewing feedback,
+          understanding community concerns, or responding if necessary.
+        </p>
+
+        <h2>How We Use the Information</h2>
+        <p>Information collected through this website may be used for the following purposes:</p>
+        <ul>
+          <li>To understand how visitors use the website and improve its performance</li>
+          <li>To review community feedback or local issues reported by residents</li>
+          <li>To respond to messages or reports submitted through website forms</li>
+          <li>To better understand community concerns within Weavers Ward</li>
+        </ul>
+        <p>We do not sell, rent, or share personal information with third parties.</p>
+
+        <h2>Data Protection</h2>
+        <p>
+          Any information submitted through the website will be handled responsibly and used only for the purposes
+          described in this policy. While reasonable steps are taken to protect information, no internet transmission
+          can be guaranteed to be completely secure.
+        </p>
+
+        <h2>External Links</h2>
+        <p>
+          This website may contain links to external websites. We are not responsible for the privacy policies or
+          practices of third-party websites.
+        </p>
+
+        <h2>Updates to This Policy</h2>
+        <p>
+          This Privacy Policy may be updated if website features change or if legal requirements require updates. Any
+          changes will be posted on this page with an updated effective date.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          If you have questions regarding this Privacy Policy or the handling of information on this website, you may
+          contact the campaign team through the contact details provided on the website.
+        </p>
+        <div class="policy-contact">
+          Tower Hamlets Independents Campaign<br>
+          Weavers Ward Election Campaign<br>
+          Tower Hamlets, London
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-bottom">
+        <a class="footer-policy" href="privacy-policy.html">Privacy Policy</a>
+        <div class="imprint">Promoted by the Tower Hamlets Independents campaign team.</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
