@@ -727,6 +727,9 @@
     color: rgba(255,255,255,0.75);
     line-height: 1.7;
   }
+  .mobile-break {
+    display: none;
+  }
 
   /* ─── REPORT ISSUE ──────────────────────────── */
   .report-section {
@@ -928,15 +931,8 @@
     .issues-grid { grid-template-columns: 1fr; }
     .hero-btns { flex-direction: column; }
     .hero-btns .btn { width: 100%; justify-content: center; }
-    .contact-item {
-      flex-wrap: nowrap;
-      align-items: flex-start;
-    }
-    .contact-item > div {
-      flex: 1 1 auto;
-    }
-    .contact-icon {
-      flex: 0 0 44px;
+    .mobile-break {
+      display: inline;
     }
   }
 
@@ -1210,7 +1206,7 @@
             <div class="contact-icon">✉️</div>
             <div>
               <div class="contact-label">Email</div>
-              <div class="contact-value">info@towerhamletsindependents.org</div>
+              <div class="contact-value">info@towerhamlets<span class="mobile-break"><br></span>independents.org</div>
             </div>
           </a>
           <a class="contact-item" href="https://towerhamletsindependents.org" target="_blank" rel="noopener">
