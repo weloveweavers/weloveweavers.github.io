@@ -55,27 +55,32 @@
     }
 
     .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       background: var(--burgundy);
       color: var(--white);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
     }
 
     .nav-inner {
-      height: 72px;
+      height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .nav-brand {
       display: inline-flex;
       align-items: center;
       gap: 12px;
+      text-decoration: none;
     }
 
     .nav-logo {
-      width: clamp(42px, 4vw, 54px);
-      height: clamp(42px, 4vw, 54px);
+      width: clamp(48px, 5vw, 64px);
+      height: clamp(48px, 5vw, 64px);
       object-fit: contain;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.08);
@@ -85,14 +90,16 @@
     .nav-brand-text {
       display: flex;
       flex-direction: column;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.95rem;
     }
 
     .nav-brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--white);
+      letter-spacing: 0.08em;
       line-height: 1.1;
+      text-transform: uppercase;
     }
 
     .hero {
@@ -541,11 +548,7 @@
         padding: 70px 0;
       }
       .nav-inner {
-        height: auto;
-        padding: 18px 0;
-      }
-      .nav-brand {
-        font-size: 0.85rem;
+        height: 68px;
       }
       .footer-bottom {
         flex-direction: column;
