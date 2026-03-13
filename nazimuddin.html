@@ -697,8 +697,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    color: var(--gold);
     flex-shrink: 0;
+  }
+  .contact-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
   }
   .contact-label {
     font-family: 'Montserrat', sans-serif;
@@ -1196,27 +1201,43 @@
         </p>
         <div class="contact-items reveal" style="transition-delay:0.15s">
           <a class="contact-item" href="tel:07508345521">
-            <div class="contact-icon">📞</div>
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L8.1 9.91a16 16 0 0 0 6 6l1.48-1.28a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
             <div>
               <div class="contact-label">Phone</div>
               <div class="contact-value">07508 345521</div>
             </div>
           </a>
           <a class="contact-item" href="mailto:info@towerhamletsindependents.org">
-            <div class="contact-icon">✉️</div>
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 6l-10 7L2 6"/>
+              </svg>
+            </div>
             <div>
               <div class="contact-label">Email</div>
               <div class="contact-value">info@towerhamlets<span class="mobile-break"><br></span>independents.org</div>
             </div>
           </a>
           <a class="contact-item" href="https://towerhamletsindependents.org" target="_blank" rel="noopener">
-            <div class="contact-icon">🌐</div>
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20"/>
+                <path d="M12 2a15 15 0 0 1 0 20"/>
+                <path d="M12 2a15 15 0 0 0 0 20"/>
+              </svg>
+            </div>
             <div>
               <div class="contact-label">Website</div>
               <div class="contact-value">towerhamletsindependents.org</div>
             </div>
           </a>
-        </div>
+</div>
       </div>
       <div class="contact-cta reveal" style="transition-delay:0.2s">
         <p class="contact-cta-text">
