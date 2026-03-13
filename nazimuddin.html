@@ -718,7 +718,7 @@
     font-size: 0.95rem;
     color: var(--white);
     font-weight: 500;
-    word-break: break-word;
+    word-break: normal;
     overflow-wrap: anywhere;
   }
   .contact-cta {
@@ -732,10 +732,6 @@
     color: rgba(255,255,255,0.75);
     line-height: 1.7;
   }
-  .mobile-break {
-    display: none;
-  }
-
   /* ─── REPORT ISSUE ──────────────────────────── */
   .report-section {
     background: var(--cream-dark);
@@ -936,9 +932,6 @@
     .issues-grid { grid-template-columns: 1fr; }
     .hero-btns { flex-direction: column; }
     .hero-btns .btn { width: 100%; justify-content: center; }
-    .mobile-break {
-      display: inline;
-    }
   }
 
   /* ─── SCROLL REVEAL ─────────────────────────── */
@@ -1220,7 +1213,7 @@
             </div>
             <div>
               <div class="contact-label">Email</div>
-              <div class="contact-value">info@towerhamlets<span class="mobile-break"><br></span>independents.org</div>
+              <div class="contact-value">info@towerhamletsindependents.org</div>
             </div>
           </a>
           <a class="contact-item" href="https://towerhamletsindependents.org" target="_blank" rel="noopener">
