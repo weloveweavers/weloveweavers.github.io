@@ -680,7 +680,7 @@
     text-decoration: none;
     transition: all 0.2s;
     min-width: 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
   .contact-item > div {
     min-width: 0;
@@ -932,6 +932,9 @@
     .issues-grid { grid-template-columns: 1fr; }
     .hero-btns { flex-direction: column; }
     .hero-btns .btn { width: 100%; justify-content: center; }
+    .contact-item {
+      align-items: flex-start;
+    }
   }
 
   /* ─── SCROLL REVEAL ─────────────────────────── */
