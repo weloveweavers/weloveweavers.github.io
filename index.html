@@ -468,6 +468,61 @@
       transform: translateY(-1px);
     }
 
+    .cookie-consent {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 24px;
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: 14px;
+      box-shadow: var(--shadow-md);
+      padding: 18px 20px;
+      display: none;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 999;
+      max-width: 560px;
+      width: calc(100% - 48px);
+    }
+
+    .cookie-consent.show {
+      display: flex;
+    }
+
+    .cookie-text {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .cookie-actions {
+      display: inline-flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-button {
+      border: 1px solid var(--burgundy);
+      background: var(--burgundy);
+      color: var(--white);
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .cookie-button.secondary {
+      background: transparent;
+      color: var(--burgundy);
+    }
+
+    .cookie-button:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
     @media (max-width: 980px) {
       .mayor-card {
         grid-column: 1 / -1;
@@ -493,6 +548,13 @@
         font-size: 0.85rem;
       }
       .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .cookie-consent {
+        left: 50%;
+        bottom: 16px;
+        width: calc(100% - 32px);
         flex-direction: column;
         align-items: flex-start;
       }
@@ -671,5 +733,46 @@
       </div>
     </div>
   </footer>
+
+  <div class="cookie-consent" id="cookieConsent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div class="cookie-text">
+      We use cookies to improve your experience, understand site traffic, and support campaign outreach. By clicking
+      Accept, you agree to our use of cookies. Read our <a href="privacy-policy.html">Privacy Policy</a> for details.
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-button secondary" type="button" id="cookieDecline">Decline</button>
+      <button class="cookie-button" type="button" id="cookieAccept">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var consentKey = "cookieConsentStatus";
+      var banner = document.getElementById("cookieConsent");
+      var acceptButton = document.getElementById("cookieAccept");
+      var declineButton = document.getElementById("cookieDecline");
+      if (!banner || !acceptButton || !declineButton) {
+        return;
+      }
+
+      var stored = localStorage.getItem(consentKey);
+      if (!stored) {
+        banner.classList.add("show");
+      }
+
+      function setConsent(value) {
+        localStorage.setItem(consentKey, value);
+        banner.classList.remove("show");
+      }
+
+      acceptButton.addEventListener("click", function () {
+        setConsent("accepted");
+      });
+
+      declineButton.addEventListener("click", function () {
+        setConsent("declined");
+      });
+    })();
+  </script>
 </body>
 </html>
