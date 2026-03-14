@@ -10,11 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --burgundy: #6B0F1A;
-      --burgundy-dark: #4A0A12;
-      --burgundy-light: #8B1525;
-      --gold: #F2B705;
-      --gold-light: #F5C842;
+  --burgundy: #7A1341;       /* main color */
+--burgundy-dark: #5C0E31;  /* ~25% darker for hover/active states */
+--burgundy-light: #9E2A5A; /* ~25% lighter for highlights or backgrounds */
+      --gold: #D7AA42;
+  --gold-light: #E0B65F;
       --cream: #F5F1E8;
       --text: #1F1F1F;
       --text-muted: #5A5A5A;
@@ -102,10 +102,176 @@
       text-transform: uppercase;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .nav-share-btn {
+      margin-left: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--burgundy-dark);
+      padding: 14px 30px;
+      border-radius: var(--radius);
+      border: 2px solid var(--gold);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .nav-share-btn:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(242, 183, 5, 0.35);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--burgundy-dark);
+      padding: 16px 24px 24px;
+      gap: 4px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 12px 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--gold); }
+
+    .mobile-menu .nav-share-btn {
+      margin-left: 0;
+      margin-top: 12px;
+      justify-content: center;
+      color: var(--burgundy-dark);
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 14px 30px;
+    }
+
+    .mobile-menu .nav-share-btn:hover {
+      color: var(--burgundy-dark);
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      transform: none;
+      box-shadow: none;
+    }
+
+    .share-section {
+      background: var(--burgundy-dark);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .share-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .share-section .section-title {
+      color: var(--white);
+      text-align: center;
+    }
+
+    .share-section .section-title::after {
+      margin: 12px auto 0;
+    }
+
+    .share-section p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--burgundy-dark);
+      padding: 16px 40px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(242, 183, 5, 0.35);
+    }
+
     .hero {
       background: linear-gradient(150deg, var(--burgundy-dark) 0%, var(--burgundy) 55%, #7A1020 100%);
       color: var(--white);
-      padding: 110px 0 90px;
+      padding: 48px 0 48px;
       position: relative;
       overflow: hidden;
     }
@@ -123,12 +289,27 @@
     .hero-inner {
       position: relative;
       z-index: 1;
-      max-width: 820px;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text { display: flex; flex-direction: column; }
+
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-map { max-width: 100%; }
     }
 
     .hero-tag {
       display: inline-flex;
       align-items: center;
+      align-self: flex-start;
       gap: 10px;
       font-size: 0.75rem;
       font-weight: 700;
@@ -148,6 +329,36 @@
       margin-bottom: 14px;
     }
 
+    .hero-title .small-text {
+  font-size: 1.5rem; /* Smaller than h1 */
+  display: block;    /* Put it on a separate line */
+}
+
+.shimmer-text {
+  display: inline-block;
+  font-weight: 900; /* match hero-title */
+  background: linear-gradient(
+    90deg,
+    var(--gold) 20%,
+    #fff 50%,
+    var(--gold) 80%
+  );
+  background-size: 200% 100%;
+
+  /* Compatibility for different browsers */
+  -webkit-background-clip: text;
+  background-clip: text;         /* standard property */
+  -webkit-text-fill-color: transparent;
+  color: transparent;            /* fallback for standard browsers */
+
+  animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
     .hero-subtitle {
       font-size: 1.1rem;
       color: rgba(255, 255, 255, 0.82);
@@ -158,6 +369,36 @@
       font-weight: 700;
       color: var(--gold);
       letter-spacing: 0.03em;
+    }
+
+    .hero-countdown {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      gap: 16px;
+      margin-top: 14px;
+      background: rgba(242, 183, 5, 0.1);
+      border: 1px solid rgba(242, 183, 5, 0.3);
+      border-radius: var(--radius);
+      padding: 14px 22px;
+    }
+
+    .countdown-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .countdown-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 1.4;
     }
 
     .section {
@@ -189,9 +430,8 @@
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 24px;
-      align-items: stretch;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
     }
 
     .card {
@@ -230,23 +470,140 @@
       color: var(--burgundy-dark);
     }
 
-    .mayor-card {
-      grid-column: 2 / span 10;
-      padding: 0;
-      gap: 0;
+    /* ── COUNCILLOR CARDS — primary focus ── */
+    .councillor-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--divider);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .councillor-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--gold);
+      z-index: 1;
+    }
+
+    .councillor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold);
+    }
+
+    .councillor-image {
+      height: 420px;
+      background: radial-gradient(ellipse at center bottom, rgba(242, 183, 5, 0.1), rgba(107, 15, 26, 0.07));
+      overflow: hidden;
+      position: relative;
+    }
+
+    .councillor-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+      filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.14));
+    }
+
+    .councillor-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.63rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--burgundy-dark);
+      background: var(--gold);
+      padding: 6px 13px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .councillor-content {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .councillor-name {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--burgundy);
+      line-height: 1.1;
+    }
+
+    .councillor-role {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .councillor-desc {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      background: rgba(107, 15, 26, 0.06);
+      padding: 11px 20px;
+      border-radius: 6px;
+      border: 1.5px solid rgba(107, 15, 26, 0.14);
+      width: fit-content;
+      margin-top: 6px;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .councillor-card:hover .card-cta {
+      background: var(--gold);
+      color: var(--burgundy-dark);
+      border-color: var(--gold);
+    }
+
+    /* ── MAYOR CARD — secondary, supporting role ── */
+    .mayor-card {
+      grid-column: 1 / -1;
+      background: var(--cream);
+      border-radius: var(--radius);
+      border: 1px solid var(--divider);
+      box-shadow: 0 2px 10px rgba(107, 15, 26, 0.07);
       display: grid;
-      grid-template-columns: minmax(280px, 40%) 1fr;
+      grid-template-columns: 180px 1fr;
+      overflow: hidden;
       align-items: stretch;
     }
 
     .mayor-image {
-      height: 100%;
-      min-height: 360px;
-      border-radius: 0;
+      background: radial-gradient(circle at center, rgba(107, 15, 26, 0.07), transparent);
       overflow: hidden;
-      background: radial-gradient(circle at top, rgba(242, 183, 5, 0.16), rgba(107, 15, 26, 0.08));
-      position: relative;
     }
 
     .mayor-image img {
@@ -255,68 +612,31 @@
       object-fit: contain;
       object-position: center;
       display: block;
-      transform: scale(1.04);
-      filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.18));
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.1));
     }
 
     .mayor-content {
-      padding: 34px;
+      padding: 24px 28px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      position: relative;
+      justify-content: center;
+      gap: 8px;
     }
 
     .mayor-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.7rem;
+      gap: 6px;
+      font-size: 0.63rem;
       font-weight: 800;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(107, 15, 26, 0.92);
-      padding: 8px 12px;
+      color: var(--text-muted);
+      background: rgba(107, 15, 26, 0.08);
+      border: 1px solid rgba(107, 15, 26, 0.12);
+      padding: 5px 11px;
       border-radius: 999px;
       width: fit-content;
-    }
-
-    .councillor-card {
-      grid-column: span 6;
-      cursor: pointer;
-      padding: 0;
-      overflow: hidden;
-      gap: 0;
-    }
-
-    .councillor-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--gold);
-    }
-
-    .councillor-image {
-      height: 320px;
-      background: radial-gradient(circle at top, rgba(242, 183, 5, 0.14), rgba(107, 15, 26, 0.1));
-      overflow: hidden;
-    }
-
-    .councillor-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      transform: scale(1);
-      filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.16));
-    }
-
-    .councillor-content {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
     }
 
     .card-link {
@@ -406,52 +726,97 @@
     footer {
       background: var(--burgundy);
       color: var(--white);
-      padding: 48px 0 28px;
+      padding: 64px 0 32px;
     }
 
-    .footer-inner {
+    .footer-grid {
       display: grid;
-      gap: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 18px;
-      font-size: 0.9rem;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 32px;
     }
 
-    .footer-contacts {
-      display: grid;
-      gap: 8px;
+    .footer-brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
     }
 
-    .social-row {
+    .footer-brand-ward {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .footer-blurb {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .footer-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer-link-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-link-list.inline { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 2px 0; }
+    .footer-link-list.inline li + li::before {
+      content: '·';
+      color: var(--gold);
+      padding: 0 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      opacity: 0.7;
+    }
+    .footer-link-list a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+    .footer-link-list a:hover { color: var(--gold); }
+
+    .social-row { display: flex; gap: 10px; margin-top: 4px; }
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
       display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .social-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
-
-    .imprint {
-      color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
       font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .social-btn:hover {
+      background: rgba(242, 183, 5, 0.12);
+      border-color: rgba(242, 183, 5, 0.3);
+      color: var(--gold);
     }
 
     .footer-bottom {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .footer-policy {
@@ -473,6 +838,16 @@
       background: rgba(255, 255, 255, 0.2);
       border-color: rgba(255, 255, 255, 0.6);
       transform: translateY(-1px);
+    }
+
+    .footer-imprint {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.3);
     }
 
     .cookie-consent {
@@ -530,19 +905,32 @@
       box-shadow: var(--shadow-sm);
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 900px) {
       .mayor-card {
-        grid-column: 1 / -1;
-        grid-template-columns: 1fr;
+        grid-template-columns: 140px 1fr;
       }
-      .councillor-card {
-        grid-column: 1 / -1;
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 700px) {
+      .nav-links, .nav-share-btn { display: none; }
+      .hamburger { display: flex; }
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+      .mayor-card {
+        grid-template-columns: 1fr;
+      }
+      .mayor-image {
+        height: 200px;
+      }
+      .councillor-image {
+        height: 320px;
+      }
       .hero {
-        padding: 90px 0 70px;
+        padding: 36px 0 36px;
       }
       .section {
         padding: 70px 0;
@@ -550,12 +938,10 @@
       .nav-inner {
         height: 68px;
       }
-      .councillor-image {
-        height: 260px;
+      .footer-grid {
+        grid-template-columns: 1fr;
       }
-      .councillor-image img {
-        object-position: center bottom;
-      }
+
       .footer-bottom {
         flex-direction: column;
         align-items: flex-start;
@@ -579,28 +965,89 @@
           <span class="nav-brand-name">We Love Weavers</span>
         </span>
       </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#team">The Team</a></li>
+        <li><a href="#plan">Our Plan</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#endorsement">Endorsement</a></li>
+      </ul>
+      <a href="abc.com" class="nav-share-btn">Share Your Thoughts</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" onclick="closeMobile()">Home</a>
+      <a href="#team" onclick="closeMobile()">The Team</a>
+      <a href="#plan" onclick="closeMobile()">Our Plan</a>
+      <a href="#community" onclick="closeMobile()">Community</a>
+      <a href="#endorsement" onclick="closeMobile()">Endorsement</a>
+      <a href="abc.com" class="nav-share-btn">Share Your Thoughts</a>
     </div>
   </nav>
 
-  <header class="hero">
+  <header class="hero" id="home">
     <div class="container hero-inner">
-      <div class="hero-tag">Vote Change For Weavers</div>
-      <h1 class="hero-title">Tower Hamlets Independents</h1>
-      <p class="hero-subtitle">
-        A local team committed to transparency, opportunity, and stronger communities in Weavers Ward.
-      </p>
-      <div class="hero-meta">Election Date: Thursday, 7 May 2026</div>
+      <div class="hero-text">
+        <div class="hero-tag">Together for a Better Weavers</div>
+        <h1 class="hero-title">
+          <span class="small-text">Tower Hamlets Independents for</span>
+  <span <span class="shimmer-text">Weavers Ward</span>
+</h1><p class="hero-subtitle">
+          A local team committed to transparency, opportunity, and stronger communities in Weavers Ward.
+        </p>
+        <div class="hero-meta">Election Date: Thursday, 7 May 2026</div>
+        <div class="hero-countdown">
+          <div class="countdown-number" id="daysLeft">--</div>
+          <div class="countdown-label">days<br>remaining</div>
+        </div>
+      </div>
+      <img src="Assets/map.png" alt="Weavers Ward map" style="width: 130%; max-width: 560px; display: block; opacity: 0.85; -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%); mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%); transform: scale(1.15); margin-right: -40px;">
     </div>
   </header>
 
-  <section class="section">
+  <section class="section" id="team">
     <div class="container">
       <h2 class="section-title">Meet The Team</h2>
       <p class="section-subtitle">
         Leadership and community candidates working together to deliver honest, practical change for Tower Hamlets.
       </p>
       <div class="team-grid">
-        <article class="card mayor-card" aria-label="Zami Ali, candidate for Mayor of Tower Hamlets">
+        <!-- Councillor candidates — primary focus -->
+        <a class="councillor-card" href="imran.html" aria-label="Imran Hossain, Weavers Ward Councillor Candidate">
+          <div class="councillor-image">
+            <div class="councillor-badge">Weavers Ward Candidate</div>
+            <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/imranbg.png" alt="Imran Hossain">
+          </div>
+          <div class="councillor-content">
+            <div class="councillor-name">Imran Hossain</div>
+            <div class="councillor-role">Solicitor · Councillor Candidate</div>
+            <div class="councillor-desc">
+              Community-focused professional committed to practical solutions, stronger neighbourhoods, and honest
+              representation in Weavers Ward.
+            </div>
+            <div class="card-cta">View Campaign Page</div>
+          </div>
+        </a>
+
+        <a class="councillor-card" href="nazimuddin.html" aria-label="Abdullah Nazimuddin, Weavers Ward Councillor Candidate">
+          <div class="councillor-image">
+            <div class="councillor-badge">Weavers Ward Candidate</div>
+            <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/nazimuddinbg.png" alt="Abdullah Nazimuddin">
+          </div>
+          <div class="councillor-content">
+            <div class="councillor-name">Abdullah Nazimuddin</div>
+            <div class="councillor-role">Community Advocate · Councillor Candidate</div>
+            <div class="councillor-desc">
+              Dedicated to local listening, grassroots action, and community-led change for families and young people.
+            </div>
+            <div class="card-cta">View Campaign Page</div>
+          </div>
+        </a>
+
+        <!-- Mayoral candidate — supporting role -->
+        <article class="mayor-card" aria-label="Zami Ali, candidate for Mayor of Tower Hamlets">
           <div class="mayor-image">
             <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/mayorbg.png" alt="Zami Ali">
           </div>
@@ -617,40 +1064,11 @@
             </div>
           </div>
         </article>
-
-        <a class="card councillor-card" href="imran.html" aria-label="Imran Hossain, Solicitor">
-          <div class="councillor-image">
-            <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/imranbg.png" alt="Imran Hossain">
-          </div>
-          <div class="councillor-content">
-            <div class="card-title">Imran Hossain</div>
-            <div class="card-role">Solicitor</div>
-            <div class="card-body">
-              Community-focused professional committed to practical solutions, stronger neighbourhoods, and honest
-              representation in Weavers Ward.
-            </div>
-            <div class="card-link">View Campaign Page</div>
-          </div>
-        </a>
-
-        <a class="card councillor-card" href="nazimuddin.html" aria-label="Abdullah Nazimuddin, Community Advocate">
-          <div class="councillor-image">
-            <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/nazimuddinbg.png" alt="Abdullah Nazimuddin">
-          </div>
-          <div class="councillor-content">
-            <div class="card-title">Abdullah Nazimuddin</div>
-            <div class="card-role">Community Advocate</div>
-            <div class="card-body">
-              Dedicated to local listening, grassroots action, and community-led change for families and young people.
-            </div>
-            <div class="card-link">View Campaign Page</div>
-          </div>
-        </a>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="plan">
     <div class="container">
       <h2 class="section-title">The 7 Point Plan For Change</h2>
       <p class="section-subtitle">Focused priorities that put residents first and rebuild trust in local government.</p>
@@ -687,7 +1105,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="community">
     <div class="container">
       <h2 class="section-title">Our Community</h2>
       <p class="section-subtitle">Weavers Ward is a proud, diverse area with huge potential and clear challenges.</p>
@@ -709,10 +1127,11 @@
           </ul>
         </div>
       </div>
+
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="endorsement">
     <div class="container">
       <h2 class="section-title">Leadership Endorsement</h2>
       <div class="quote-section">
@@ -724,21 +1143,47 @@
     </div>
   </section>
 
+  <section class="share-section">
+    <div class="share-inner">
+      <h2 class="section-title">Share Your Thoughts</h2>
+      <p>Have a local issue or want to share your views with the team? We want to hear from the residents of Weavers Ward.</p>
+      <a href="abc.com" class="btn-gold">Share Your Thoughts</a>
+    </div>
+  </section>
+
   <footer>
-    <div class="container footer-inner">
-      <div class="footer-contacts">
-        <div>Imran Hossain – 07556 049713</div>
-        <div>Abdullah Nazimuddin – 07508 345521</div>
-      </div>
-      <div class="social-row">
-        <div class="social-icon">FB</div>
-        <div class="social-icon">X</div>
-        <div class="social-icon">IG</div>
-        <div class="social-icon">YT</div>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">We Love Weavers</div>
+          <div class="footer-brand-ward">Tower Hamlets Independents · Weavers Ward</div>
+          <p class="footer-blurb">A local team committed to transparency, opportunity, and stronger communities in Weavers Ward.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-link-list inline">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#team">The Team</a></li>
+            <li><a href="#plan">Our Plan</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#endorsement">Endorsement</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-link-list">
+            <li><a href="tel:07556049713">Imran — 07556049713</a></li>
+            <li><a href="tel:07508345521">Abdullah — 07508345521</a></li>
+            <li><a href="mailto:weloveweavers@gmail.com">weloveweavers@gmail.com</a></li>
+            <li><a href="https://www.weloveweavers.org.uk/" target="_blank" rel="noopener">weloveweavers.org.uk</a></li>
+          </ul>
+          </div>
+        </div>
       </div>
       <div class="footer-bottom">
         <a class="footer-policy" href="privacy-policy.html">Privacy Policy</a>
-        <div class="imprint">Promoted by the Tower Hamlets Independents campaign team.</div>
+        <p class="footer-imprint">Promoted by the Tower Hamlets Independents campaign team.</p>
+        <p class="footer-copy">&copy; 2026 We Love Weavers. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -753,6 +1198,28 @@
       <button class="cookie-button" type="button" id="cookieAccept">Accept</button>
     </div>
   </div>
+
+  <script>
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+    }
+  </script>
+
+  <script>
+    (function () {
+      // Election day: 7 May 2026 midnight UK time (BST = UTC+1)
+      var electionDate = new Date('2026-05-07T00:00:00+01:00');
+      var now = new Date();
+      var diff = Math.ceil((electionDate - now) / (1000 * 60 * 60 * 24));
+      var el = document.getElementById('daysLeft');
+      if (el) el.textContent = diff > 0 ? diff : 0;
+    })();
+  </script>
 
   <script>
     (function () {
