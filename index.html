@@ -1233,35 +1233,47 @@
       if (el) el.textContent = diff > 0 ? diff : 0;
     })();
   </script>
+<script>
+(function () {
+  var consentKey = "cookieConsentStatus";
+  var banner = document.getElementById("cookieConsent");
+  var acceptButton = document.getElementById("cookieAccept");
+  var declineButton = document.getElementById("cookieDecline");
 
-  <script>
-    (function () {
-      var consentKey = "cookieConsentStatus";
-      var banner = document.getElementById("cookieConsent");
-      var acceptButton = document.getElementById("cookieAccept");
-      var declineButton = document.getElementById("cookieDecline");
-      if (!banner || !acceptButton || !declineButton) {
-        return;
-      }
+  if (!banner || !acceptButton || !declineButton) return;
 
-      var stored = localStorage.getItem(consentKey);
-      if (!stored) {
-        banner.classList.add("show");
-      }
+  var stored = localStorage.getItem(consentKey);
+  if (!stored) {
+    banner.classList.add("show");
+  } else if (stored === "accepted") {
+    loadGA();
+  }
 
-      function setConsent(value) {
-        localStorage.setItem(consentKey, value);
-        banner.classList.remove("show");
-      }
+  function setConsent(value) {
+    localStorage.setItem(consentKey, value);
+    banner.classList.remove("show");
+    if (value === "accepted") loadGA();
+  }
 
-      acceptButton.addEventListener("click", function () {
-        setConsent("accepted");
-      });
+  function loadGA() {
+    // Dynamically insert GA script
+    var script = document.createElement("script");
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-07B4WXZYW3";
+    script.async = true;
+    document.head.appendChild(script);
 
-      declineButton.addEventListener("click", function () {
-        setConsent("declined");
-      });
-    })();
-  </script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'G-07B4WXZYW3', { 'anonymize_ip': true });
+  }
+
+  acceptButton.addEventListener("click", function () { setConsent("accepted"); });
+  declineButton.addEventListener("click", function () { setConsent("declined"); });
+
+})();
+</script>
 </body>
 </html>
