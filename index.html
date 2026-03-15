@@ -601,9 +601,9 @@
       border: 1px solid var(--divider);
       box-shadow: 0 2px 10px rgba(107, 15, 26, 0.07);
       display: grid;
-      grid-template-columns: 180px 1fr;
+      grid-template-columns: 1fr 180px;
       overflow: hidden;
-      align-items: stretch;
+      align-items: start;
     }
 
     .mayor-image {
@@ -912,7 +912,8 @@
 
     @media (max-width: 900px) {
       .mayor-card {
-        grid-template-columns: 140px 1fr;
+        grid-template-columns: 1fr 140px;
+        align-items: start;
       }
       .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -928,8 +929,10 @@
       .mayor-card {
         grid-template-columns: 1fr;
       }
-      .mayor-image {
-        height: 200px;
+      .mayor-card .mayor-content { order: 2; }
+      .mayor-card .mayor-image {
+        order: 1;
+        height: 220px;
       }
       .councillor-image {
         height: 320px;
@@ -1062,9 +1065,6 @@
 
         <!-- Mayoral candidate — supporting role -->
         <article class="mayor-card" aria-label="Zami Ali, candidate for Mayor of Tower Hamlets">
-          <div class="mayor-image">
-            <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/mayorbg.png" alt="Zami Ali">
-          </div>
           <div class="mayor-content">
             <div class="mayor-badge">Mayoral Candidate</div>
             <div class="card-title">Zami Ali</div>
@@ -1076,6 +1076,22 @@
             <div class="card-goal">
               Goal: To bring transparency, accountability, and professionalism to local government.
             </div>
+            <div style="margin-top:16px;">
+              <div style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.95rem; color:var(--burgundy); margin-bottom:12px;">More Than a Candidate: A Lifetime of Community Service</div>
+              <ol style="padding-left:18px; display:grid; gap:8px; color:var(--text-muted); font-size:0.88rem; line-height:1.6;">
+                <li>Since 2007, based out of Whitechapel, in conjunction with various solicitors he was the only local barrister who regularly took two pro bono cases every month for victims of domestic violence, child abuse, and disabled people. He is on the Access to Advocacy portal and Pro Bono portal.</li>
+                <li>In association with women-focused organisations, he provided access to advocacy for people who could not hire a barrister.</li>
+                <li>Defended, pro bono, tenants against council evictions and homelessness.</li>
+                <li>Has trained local boys and girls to become solicitors within the borough. Many of them are leading figures in their law firms and are now supporting his campaign.</li>
+                <li>Was a lawyer for the Gaza Flotilla and represented Shahidul Alam's family when he was taken as a prisoner by Israel.</li>
+                <li>In association with Stifford Centre, runs a mock advocacy programme for 14–17 year olds to encourage them to join the judiciary and legal services.</li>
+                <li>As a pupil master, has helped newly qualified local students gain access to mainstream legal practices.</li>
+                <li>Although a member of a Holborn-based chambers of barristers, he has always maintained a pro bono office in Whitechapel and continues to encourage local law firms to take on more pro bono cases and give training contracts to local students.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="mayor-image">
+            <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/mayorbg.png" alt="Zami Ali">
           </div>
         </article>
       </div>
