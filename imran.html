@@ -53,7 +53,7 @@
 }
 
 
-  /* UTILITY */
+  /* ─── UTILITY ──────────────────────────────── */
   .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
   .section { padding: 88px 0; }
   .section-title {
@@ -128,7 +128,7 @@
     transform: translateY(-2px);
   }
 
-  /* IMAGE PLACEHOLDER */
+  /* ─── IMAGE PLACEHOLDER ─────────────────────── */
   .img-placeholder {
     background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy-light) 100%);
     border-radius: var(--radius-lg);
@@ -159,7 +159,7 @@
   }
   .img-placeholder svg { opacity: 0.35; }
 
-  /* NAV */
+  /* ─── NAV ───────────────────────────────────── */
   .navbar {
     position: sticky;
     top: 0;
@@ -250,7 +250,7 @@
     transition: all 0.3s;
   }
 
-  /* HERO */
+  /* ─── HERO ──────────────────────────────────── */
   .hero {
     background: linear-gradient(160deg, var(--burgundy-dark) 0%, var(--burgundy) 55%, #7A1020 100%);
     padding: 96px 0 80px;
@@ -406,7 +406,7 @@
   }
   .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
 
-  /* WHY STANDING */
+  /* ─── WHY STANDING ─────────────────────────── */
   .why-section { background: var(--white); }
   .issues-grid {
     display: grid;
@@ -452,7 +452,7 @@
     line-height: 1.4;
   }
 
-  /* QUOTE BAND */
+  /* ─── QUOTE BAND ───────────────────────────── */
   .quote-band {
     background: var(--burgundy);
     padding: 80px 0;
@@ -502,7 +502,7 @@
     z-index: 1;
   }
 
-  /* ABOUT */
+  /* ─── ABOUT ─────────────────────────────────── */
   .about-section { background: var(--cream); }
   .about-grid {
     display: grid;
@@ -608,7 +608,7 @@
     line-height: 1.6;
   }
 
-  /* COMMITMENTS */
+  /* ─── COMMITMENTS ───────────────────────────── */
   .commitments-section { background: var(--white); }
   .commitments-grid {
     display: grid;
@@ -649,7 +649,7 @@
     line-height: 1.65;
   }
 
-  /* COMMUNITY */
+  /* ─── COMMUNITY ─────────────────────────────── */
   .community-section { background: var(--cream); }
   .community-text {
     max-width: 680px;
@@ -663,12 +663,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
-  .community-gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
   .gallery-item {
     aspect-ratio: 4/3;
     border-radius: var(--radius-lg);
@@ -679,7 +673,7 @@
     aspect-ratio: 16/9;
   }
 
-  /* CONTACT */
+  /* ─── CONTACT ───────────────────────────────── */
   .contact-section { background: var(--burgundy-dark); }
   .contact-section .section-title { color: var(--white); }
   .contact-section .section-title::after { background: var(--gold); }
@@ -748,7 +742,7 @@
     line-height: 1.7;
   }
 
-  /* REPORT ISSUE */
+  /* ─── REPORT ISSUE ──────────────────────────── */
   .report-section {
     background: var(--cream-dark);
     padding: 72px 0;
@@ -782,7 +776,7 @@
     line-height: 1.75;
   }
 
-  /* FOOTER */
+  /* ─── FOOTER ────────────────────────────────── */
   footer {
     background: var(--burgundy-dark);
     padding: 56px 0 32px;
@@ -900,7 +894,7 @@
     transform: translateY(-1px);
   }
 
-  /* MOBILE NAV */
+  /* ─── MOBILE NAV ───────────────────────────── */
   .mobile-menu {
     display: none;
     flex-direction: column;
@@ -923,7 +917,7 @@
   .mobile-menu a:hover { color: var(--gold); }
   .mobile-menu .btn { margin-top: 12px; justify-content: center; }
 
-  /* RESPONSIVE */
+  /* ─── RESPONSIVE ───────────────────────────── */
   @media (max-width: 960px) {
     .hero-inner { grid-template-columns: 1fr; gap: 40px; }
     .hero-image-wrap { max-width: 360px; }
@@ -955,7 +949,7 @@
     .hero-btns .btn { width: 100%; justify-content: center; }
   }
 
-  /* SCROLL REVEAL */
+  /* ─── SCROLL REVEAL ─────────────────────────── */
   .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -978,7 +972,7 @@
 </script>
 <body>
 
-<!-- NAVBAR -->
+<!-- ═══ NAVBAR ═══ -->
 <nav class="navbar">
   <div class="container nav-inner">
     <a href="https://www.weloveweavers.org.uk/" class="nav-brand" aria-label="We Love Weavers Home">
@@ -1011,7 +1005,7 @@
   </div>
 </nav>
 
-<!--  HERO -->
+<!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
   <div class="container hero-inner">
     <div class="hero-image-wrap reveal">
@@ -1037,11 +1031,11 @@
   </div>
 </section>
 
-<!--  WHY I AM STANDING  -->
+<!-- ═══ WHY I AM STANDING ═══ -->
 <section class="section why-section" id="priorities">
   <div class="container">
     <h2 class="section-title reveal">Why I Am Standing</h2>
-    <p class="section-subtitle reveal" style="transition-delay:0.1s">Our ward deserves better services, better communication, and better leadership. It is time for a fresh voice, real accountability, and a councillor who puts people before politics.</p>
+    <p class="section-subtitle reveal" style="transition-delay:0.1s">Our ward deserves better — better services, better communication, and better leadership. It is time for a fresh voice, real accountability, and a councillor who puts people before politics.</p>
     <div class="issues-grid">
       <div class="issue-card reveal" style="transition-delay:0.05s">
         <span class="issue-icon">🏚️</span>
@@ -1067,7 +1061,7 @@
   </div>
 </section>
 
-<!-- QUOTE BAND  -->
+<!-- ═══ QUOTE BAND ═══ -->
 <section class="quote-band">
   <div class="container">
     <blockquote class="quote-text reveal">
@@ -1077,7 +1071,7 @@
   </div>
 </section>
 
-<!-- ABOUT  -->
+<!-- ═══ ABOUT ═══ -->
 <section class="section about-section" id="about">
   <div class="container">
     <div class="about-grid">
@@ -1124,34 +1118,34 @@
   </div>
 </section>
 
-<!-- COMMITMENTS -->
+<!-- ═══ COMMITMENTS ═══ -->
 <section class="section commitments-section">
   <div class="container">
     <h2 class="section-title reveal">My Commitment to Weavers Ward</h2>
     <p class="section-subtitle reveal" style="transition-delay:0.1s">A practical agenda focused on safety, opportunity, and fair representation for every resident.</p>
     <div class="commitments-grid">
       <div class="commitment-card reveal" style="transition-delay:0.05s">
-        <div class="commitment-number">01</div>
+        <div class="commitment-number">🛡️</div>
         <h3>Safer streets and stronger communities</h3>
         <p>Working with residents and partners to make estates safer and more connected.</p>
       </div>
       <div class="commitment-card reveal" style="transition-delay:0.1s">
-        <div class="commitment-number">02</div>
+        <div class="commitment-number">🏠</div>
         <h3>Better housing and support for residents</h3>
         <p>Championing repairs, accountability, and support for families facing housing challenges.</p>
       </div>
       <div class="commitment-card reveal" style="transition-delay:0.15s">
-        <div class="commitment-number">03</div>
+        <div class="commitment-number">🌱</div>
         <h3>More opportunities for young people</h3>
         <p>Backing apprenticeships, mentoring, and pathways into meaningful work.</p>
       </div>
       <div class="commitment-card reveal" style="transition-delay:0.2s">
-        <div class="commitment-number">04</div>
+        <div class="commitment-number">⚖️</div>
         <h3>Fair representation for everyone</h3>
         <p>Ensuring local voices are heard and treated with respect at every level.</p>
       </div>
       <div class="commitment-card reveal" style="transition-delay:0.25s">
-        <div class="commitment-number">05</div>
+        <div class="commitment-number">🐾</div>
         <h3>Welcoming Pets in Public Spaces</h3>
         <p>Support pet-friendly public spaces so families and their pets can enjoy safer outdoor areas.</p>
       </div>
@@ -1159,26 +1153,41 @@
   </div>
 </section>
 
-<!--  COMMUNITY -->
+<!-- ═══ COMMUNITY ═══ -->
 <section class="section community-section" id="community">
   <div class="container">
-    <h2 class="section-title reveal">Leadership &amp; Public Service: Student Years</h2>
+    <h2 class="section-title reveal">Leadership &amp; Public Service &mdash; Student Years</h2>
     <p class="community-text reveal" style="transition-delay:0.1s">During his student years, Imran served as Elected Students&#8217; Officer at the University of Hertfordshire Students&#8217; Union, representing over 27,000 students and organising support programmes. He was Founding Vice-President of the South Asian Students&#8217; Union UK, Vice-President of the Lawyers Without Borders Society, and a campus leader for Amnesty International UK and UNICEF, championing human rights and children&#8217;s rights.</p>
     <div class="community-gallery">
       <div class="gallery-item reveal" style="transition-delay:0.05s">
-        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/img1.jpg" alt="Students&#8217; Union Leadership">
+        <div class="img-placeholder" style="height:100%">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>Students&#8217; Union Leadership</span>
+        </div>
       </div>
       <div class="gallery-item reveal" style="transition-delay:0.1s">
-        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/img3.jpg" alt="Human Rights Advocacy">
+        <div class="img-placeholder" style="height:100%">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>Human Rights Advocacy</span>
+        </div>
       </div>
       <div class="gallery-item reveal" style="transition-delay:0.15s">
-        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/img8.jpg" alt="Youth &amp; Children&#8217;s Rights">
+        <div class="img-placeholder" style="height:100%">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>Youth &amp; Children&#8217;s Rights</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!--  CONTACT  -->
+<!-- ═══ CONTACT ═══ -->
 <section class="section contact-section" id="contact">
   <div class="container">
     <div class="contact-grid">
@@ -1239,7 +1248,7 @@
   </div>
 </section>
 
-<!-- REPORT ISSUE -->
+<!-- ═══ REPORT ISSUE ═══ -->
 <section class="report-section" id="thoughts">
   <div class="report-inner">
     <h2 class="section-title reveal" style="text-align:center">Help Improve Weavers Ward</h2>
@@ -1248,7 +1257,7 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="container">
     <div class="footer-grid">
