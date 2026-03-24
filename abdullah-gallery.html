@@ -579,47 +579,47 @@
 
     <div class="photo-grid" id="photoGrid">
       <div class="photo-item reveal" style="transition-delay:0.05s" data-index="0">
-        <img src="Assets/n1.jpeg" alt="Abdullah Nazimuddin community photo 1" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n1.jpeg" alt="Abdullah Nazimuddin community photo 1" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.08s" data-index="1">
-        <img src="Assets/n2.jpeg" alt="Abdullah Nazimuddin community photo 2" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n2.jpeg" alt="Abdullah Nazimuddin community photo 2" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.11s" data-index="2">
-        <img src="Assets/n3.jpeg" alt="Abdullah Nazimuddin community photo 3" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n3.jpeg" alt="Abdullah Nazimuddin community photo 3" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.14s" data-index="3">
-        <img src="Assets/n4.jpeg" alt="Abdullah Nazimuddin community photo 4" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n4.jpeg" alt="Abdullah Nazimuddin community photo 4" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.17s" data-index="4">
-        <img src="Assets/n5.jpeg" alt="Abdullah Nazimuddin community photo 5" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n5.jpeg" alt="Abdullah Nazimuddin community photo 5" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.20s" data-index="5">
-        <img src="Assets/n6.jpeg" alt="Abdullah Nazimuddin community photo 6" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n6.jpeg" alt="Abdullah Nazimuddin community photo 6" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.23s" data-index="6">
-        <img src="Assets/n7.jpeg" alt="Abdullah Nazimuddin community photo 7" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n7.jpeg" alt="Abdullah Nazimuddin community photo 7" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.26s" data-index="7">
-        <img src="Assets/n8.jpeg" alt="Abdullah Nazimuddin community photo 8" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n8.jpeg" alt="Abdullah Nazimuddin community photo 8" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.29s" data-index="8">
-        <img src="Assets/n9.jpeg" alt="Abdullah Nazimuddin community photo 9" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n9.jpeg" alt="Abdullah Nazimuddin community photo 9" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.32s" data-index="9">
-        <img src="Assets/n10.jpeg" alt="Abdullah Nazimuddin community photo 10" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n10.jpeg" alt="Abdullah Nazimuddin community photo 10" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
       <div class="photo-item reveal" style="transition-delay:0.35s" data-index="10">
-        <img src="Assets/n11.jpeg" alt="Abdullah Nazimuddin community photo 11" loading="lazy">
+        <img src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/n11.jpeg" alt="Abdullah Nazimuddin community photo 11" loading="lazy">
         <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
       </div>
     </div>
@@ -693,10 +693,11 @@
   revealEls.forEach(el => observer.observe(el));
 
   // ── Lightbox ──
+  const BASE = 'https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/';
   const images = [
-    'Assets/n1.jpeg','Assets/n2.jpeg','Assets/n3.jpeg','Assets/n4.jpeg',
-    'Assets/n5.jpeg','Assets/n6.jpeg','Assets/n7.jpeg','Assets/n8.jpeg',
-    'Assets/n9.jpeg','Assets/n10.jpeg','Assets/n11.jpeg'
+    BASE+'n1.jpeg', BASE+'n2.jpeg', BASE+'n3.jpeg', BASE+'n4.jpeg',
+    BASE+'n5.jpeg', BASE+'n6.jpeg', BASE+'n7.jpeg', BASE+'n8.jpeg',
+    BASE+'n9.jpeg', BASE+'n10.jpeg', BASE+'n11.jpeg'
   ];
   let currentIndex = 0;
   const lightbox = document.getElementById('lightbox');
