@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/favicon.ico">
+
+<title>WE LOVE WEAVERS | Abdullah Nazimuddin – Photo Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --burgundy: #7A1341;
+    --burgundy-dark: #5C0E31;
+    --burgundy-light: #9E2A5A;
+    --gold: #D7AA42;
+    --gold-light: #E0B65F;
+    --gold-pale: #FDF3D0;
+    --cream: #F5F1E8;
+    --cream-dark: #EDE8DC;
+    --text: #1F1F1F;
+    --text-muted: #5A5A5A;
+    --divider: #E3DED3;
+    --white: #FFFFFF;
+    --shadow-sm: 0 2px 8px rgba(107,15,26,0.08);
+    --shadow-md: 0 6px 24px rgba(107,15,26,0.12);
+    --shadow-lg: 0 16px 48px rgba(107,15,26,0.18);
+    --radius: 8px;
+    --radius-lg: 14px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ─── UTILITY ───────────────────────────────── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 88px 0; }
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: var(--burgundy);
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 4px;
+    background: var(--gold);
+    margin-top: 12px;
+    border-radius: 2px;
+  }
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin-bottom: 48px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 30px;
+    border-radius: var(--radius);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: 2px solid transparent;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--burgundy-dark);
+    border-color: var(--gold);
+  }
+  .btn-gold:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(242,183,5,0.35);
+  }
+
+  /* ─── NAV ───────────────────────────────────── */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--burgundy);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 16px;
+  }
+  .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo {
+    width: clamp(48px, 5vw, 64px);
+    height: clamp(48px, 5vw, 64px);
+    object-fit: contain;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    padding: 6px;
+  }
+  .nav-brand-text { display: flex; flex-direction: column; }
+  .nav-brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--gold);
+    background: rgba(255,255,255,0.07);
+  }
+  .nav-cta {
+    margin-left: 6px;
+    padding: 10px 18px !important;
+    font-size: 0.75rem !important;
+    white-space: nowrap;
+  }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ─── PAGE HERO BAND ────────────────────────── */
+  .page-hero {
+    background: linear-gradient(160deg, var(--burgundy-dark) 0%, var(--burgundy) 55%, #7A1020 100%);
+    padding: 64px 0 56px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(242,183,5,0.06) 0%, transparent 60%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 80px
+      );
+  }
+  .page-hero-inner { position: relative; z-index: 1; }
+  .page-hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(242,183,5,0.12);
+    border: 1px solid rgba(242,183,5,0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .page-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .page-hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ─── GALLERY ───────────────────────────────── */
+  .gallery-section { background: var(--cream); }
+  .photo-grid {
+    columns: 3;
+    column-gap: 16px;
+  }
+  .photo-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .photo-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .photo-item:hover img { transform: scale(1.03); }
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(92,14,49,0.7) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+  .photo-item:hover .photo-overlay { opacity: 1; }
+  .photo-overlay-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ─── LIGHTBOX ──────────────────────────────── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-width: 90vw;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: background 0.2s;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+  .lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 1.4rem;
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+  .lightbox-counter {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── FOOTER ────────────────────────────────── */
+  footer {
+    background: var(--burgundy-dark);
+    padding: 56px 0 32px;
+    color: rgba(255,255,255,0.7);
+    border-top: 3px solid rgba(242,183,5,0.3);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 32px;
+  }
+  .footer-brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .footer-brand-ward {
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .footer-blurb {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+  }
+  .footer-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-link-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-link-list.inline { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 2px 0; }
+  .footer-link-list.inline li + li::before {
+    content: '·';
+    color: var(--gold);
+    padding: 0 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    opacity: 0.7;
+  }
+  .footer-link-list a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .footer-link-list a:hover { color: var(--gold); }
+  .social-row { display: flex; gap: 10px; margin-top: 4px; }
+  .social-btn {
+    width: 38px;
+    height: 38px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .social-btn:hover {
+    background: rgba(242,183,5,0.12);
+    border-color: rgba(242,183,5,0.3);
+    color: var(--gold);
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-imprint { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+  .footer-policy {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    text-decoration: none;
+    background: rgba(255,255,255,0.08);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .footer-policy:hover {
+    background: rgba(255,255,255,0.16);
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-1px);
+  }
+
+  /* ─── MOBILE NAV ───────────────────────────── */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--burgundy-dark);
+    padding: 16px 24px 24px;
+    gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .btn { margin-top: 12px; justify-content: center; }
+
+  /* ─── SCROLL REVEAL ─────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ───────────────────────────── */
+  @media (max-width: 960px) {
+    .photo-grid { columns: 2; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 900px) {
+    .section { padding: 64px 0; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
+  }
+  @media (max-width: 480px) {
+    .photo-grid { columns: 1; }
+  }
+</style>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-07B4WXZYW3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-07B4WXZYW3');
+</script>
+
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="https://www.weloveweavers.org.uk/" class="nav-brand" aria-label="We Love Weavers Home">
+      <img class="nav-logo" src="https://raw.githubusercontent.com/weloveweavers/weloveweavers.github.io/refs/heads/main/Assets/logo.jpeg" alt="We Love Weavers logo">
+      <span class="nav-brand-text">
+        <span class="nav-brand-name">We Love Weavers</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="abdullah.html">Home</a></li>
+      <li><a href="abdullah.html#about">About Abdullah</a></li>
+      <li><a href="abdullah.html#priorities">Priorities</a></li>
+      <li><a href="abdullah.html#community">Community</a></li>
+      <li><a href="abdullah-gallery.html" class="active">Photo Gallery</a></li>
+      <li><a href="abdullah.html#contact">Contact</a></li>
+    </ul>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdvK1q6cr7Ddcn8I7fsAk5ScyAmlM9jP68fTvEEJc1CmucyVQ/viewform" class="btn btn-gold nav-cta">Share Your Thoughts</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="abdullah.html" onclick="closeMobile()">Home</a>
+    <a href="abdullah.html#about" onclick="closeMobile()">About Abdullah</a>
+    <a href="abdullah.html#priorities" onclick="closeMobile()">Priorities</a>
+    <a href="abdullah.html#community" onclick="closeMobile()">Community</a>
+    <a href="abdullah-gallery.html" onclick="closeMobile()">Photo Gallery</a>
+    <a href="abdullah.html#contact" onclick="closeMobile()">Contact</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdvK1q6cr7Ddcn8I7fsAk5ScyAmlM9jP68fTvEEJc1CmucyVQ/viewform" class="btn btn-gold" onclick="closeMobile()">Share Your Thoughts</a>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-hero-tag">Abdullah Nazimuddin · Weavers Ward</div>
+    <h1 class="page-hero-title">Photo Gallery</h1>
+    <p class="page-hero-sub">A look at Abdullah's community work, events, and engagement across Weavers Ward.</p>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section class="section gallery-section">
+  <div class="container">
+    <h2 class="section-title reveal">Community in Pictures</h2>
+    <p class="section-subtitle reveal" style="transition-delay:0.1s">Moments from the campaign trail, community events, and local engagement.</p>
+
+    <div class="photo-grid" id="photoGrid">
+      <div class="photo-item reveal" style="transition-delay:0.05s" data-index="0">
+        <img src="Assets/n1.jpeg" alt="Abdullah Nazimuddin community photo 1" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.08s" data-index="1">
+        <img src="Assets/n2.jpeg" alt="Abdullah Nazimuddin community photo 2" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.11s" data-index="2">
+        <img src="Assets/n3.jpeg" alt="Abdullah Nazimuddin community photo 3" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.14s" data-index="3">
+        <img src="Assets/n4.jpeg" alt="Abdullah Nazimuddin community photo 4" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.17s" data-index="4">
+        <img src="Assets/n5.jpeg" alt="Abdullah Nazimuddin community photo 5" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.20s" data-index="5">
+        <img src="Assets/n6.jpeg" alt="Abdullah Nazimuddin community photo 6" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.23s" data-index="6">
+        <img src="Assets/n7.jpeg" alt="Abdullah Nazimuddin community photo 7" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.26s" data-index="7">
+        <img src="Assets/n8.jpeg" alt="Abdullah Nazimuddin community photo 8" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.29s" data-index="8">
+        <img src="Assets/n9.jpeg" alt="Abdullah Nazimuddin community photo 9" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.32s" data-index="9">
+        <img src="Assets/n10.jpeg" alt="Abdullah Nazimuddin community photo 10" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+      <div class="photo-item reveal" style="transition-delay:0.35s" data-index="10">
+        <img src="Assets/n11.jpeg" alt="Abdullah Nazimuddin community photo 11" loading="lazy">
+        <div class="photo-overlay"><span class="photo-overlay-text">View Photo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#8249;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">&#8250;</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Abdullah Nazimuddin</div>
+        <div class="footer-brand-ward">Independent Candidate · Weavers Ward</div>
+        <p class="footer-blurb">Fighting for stronger representation, better housing, cleaner streets, and real opportunities for every resident of Weavers Ward, Tower Hamlets.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-link-list inline">
+          <li><a href="abdullah.html">Home</a></li>
+          <li><a href="abdullah.html#about">About Abdullah</a></li>
+          <li><a href="abdullah.html#priorities">Priorities</a></li>
+          <li><a href="abdullah.html#community">Community</a></li>
+          <li><a href="abdullah-gallery.html">Photo Gallery</a></li>
+          <li><a href="abdullah.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-link-list">
+          <li><a href="tel:07508345521">07508 345521</a></li>
+          <li><a href="mailto:weloveweavers@gmail.com">weloveweavers@gmail.com</a></li>
+          <li><a href="https://www.weloveweavers.org.uk/" target="_blank" rel="noopener">www.weloveweavers.org.uk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <a class="footer-policy" href="/privacy-policy">Privacy Policy</a>
+      <p class="footer-imprint">Promoted by the campaign team on behalf of the candidate.</p>
+      <p class="footer-copy">&copy; 2026 Abdullah Nazimuddin Campaign. All rights reserved.</p>
+      <p class="footer-copy">Website designed by <a href="https://www.codesyl.com" target="_blank">CodeSyl</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Hamburger menu ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  function closeMobile() { mobileMenu.classList.remove('open'); }
+
+  // ── Scroll reveal ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── Lightbox ──
+  const images = [
+    'Assets/n1.jpeg','Assets/n2.jpeg','Assets/n3.jpeg','Assets/n4.jpeg',
+    'Assets/n5.jpeg','Assets/n6.jpeg','Assets/n7.jpeg','Assets/n8.jpeg',
+    'Assets/n9.jpeg','Assets/n10.jpeg','Assets/n11.jpeg'
+  ];
+  let currentIndex = 0;
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = images[index];
+    lightboxImg.alt = 'Abdullah Nazimuddin community photo ' + (index + 1);
+    lightboxCounter.textContent = (index + 1) + ' / ' + images.length;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    openLightbox(currentIndex);
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    openLightbox(currentIndex);
+  }
+
+  document.querySelectorAll('.photo-item').forEach(item => {
+    item.addEventListener('click', () => openLightbox(parseInt(item.dataset.index)));
+  });
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', showPrev);
+  document.getElementById('lightboxNext').addEventListener('click', showNext);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+</script>
+</body>
+</html>
